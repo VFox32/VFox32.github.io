@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//DE" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html lang="en" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Power calculator</title><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <style type="">
+        body, html, textarea, input {
+            font-size: 20px;
+        }
+    </style>
+    <a href="./Home.html">Home</a>
+    <script type="text/javascript">
+
+      function bitString(remaining) {
+
+        let packages  = [];
+        let returnString = '';
+        while (remaining >= 64) {
+          packages.push(64)
+          remaining -= 64;
+        }
+        if (packages.length > 0) {
+          returnString += packages.length + ' * 64';
+        }
+        if (remaining > 0) {
+          returnString += ' + ' + remaining ;
+
+        }
+
+        return returnString
+      }
+    function add() {
+      let zahl= Number(document.forms[0].zahl1.value)
+      let ergebnis = (zahl - 15) / 2.8 + 5
+      let array =  ergebnis.toString().split(".");
+      let switchZahl = 0
+      if (array.length > 1) {
+        switchZahl = Number('0.' + array[1])
+      }
+      let ausgabe = '';
+
+      console.log(switchZahl)
+      switch (true) {
+        case switchZahl == 0:
+          ausgabe = bitString(Number(array[0]));
+          document.forms[0].ergebnis2.value = ''
+          break
+        case switchZahl < 0.4:
+          ausgabe =  bitString(Number(array[0]))
+          document.forms[0].ergebnis2.value = '+6'
+          break;
+        case  switchZahl < 0.78:
+          ausgabe =  bitString(Number(array[0]))
+          document.forms[0].ergebnis2.value = '+12'
+          break;
+        default:
+          ausgabe = bitString(Number(array[0]) + 1);
+          document.forms[0].ergebnis2.value = ''
+          break
+      }
+
+      document.forms[0].ergebnis.value = ausgabe;
+    }</script>
+
+
+</head><body>
+
+<form action="">
+    <table border="0" cellspacing="0" cellpadding="2">
+        <tr>
+            <td>Power</td>
+            <td><input type="text" name="zahl1" size="24" onkeyup="add()" /></td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td>Shulkers:</td>
+            <td><input type="text"   readonly name="ergebnis" size="24"></input></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td>Snowballs:</td>
+            <td><input type="text"   readonly name="ergebnis2" size="24"></input></td>
+        </tr>
+    </table>
+</form>
+<p>Made by VFox32's dad</p>
+</body>
+
+</html>

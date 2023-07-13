@@ -1,0 +1,15 @@
+body{
+  background-color: rgb(30,30,30);
+}
+h1, h2, p, td, input{
+  color:white;
+}
+a{
+  color: rgb(150,160,250);
+}
+body, html, textarea, input, a, p{
+  font-size: 20px;
+}
+input{
+  background-color: rgb(60,60,60);
+}

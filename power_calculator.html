@@ -1,8 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//DE" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html lang="en" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 <head><title>Power Calculator</title><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <link rel="stylesheet" href="./CSS.css">
-    <a href="./index.html">Home</a>
-    <h2>This is made to help setting Redstone Signal strengh in differrent inventories</h2>
+    <!-- navbar -->
+    <div class="navbar">
+      <a href="./index.html">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn">Power Calculator
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="./power-hopper.html">Hopper</a>
+        </div>
+      </div>
+    </div>
+  </head>
+  <!-- content -->
+  <body>
+    <br>
     <script type="text/javascript">
 
       function bitString(remaining) {
@@ -74,7 +88,7 @@
             <td colspan="2"></td>
         </tr>
         <tr>
-            <td>Semi Stackables:</td>
+            <td>Semi-Stackables:</td>
             <td><input type="text"   readonly name="ergebnis2" size="24"></input></td>
         </tr>
     </table>

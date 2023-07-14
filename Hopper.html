@@ -1,22 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//DE" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html lang="en" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
-<head><title>Power calculator</title><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <link rel="stylesheet" href="./CSS.css">
+<head><title>Power Calculator</title><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <link rel="stylesheet" href="./CSS.css">
     <a href="./Home.html">Home</a>
     <script type="text/javascript">
 
       function bitString(remaining) {
 
-        let packages  = [];
-        let returnString = '';
-        while (remaining >= 64) {
-          packages.push(64)
-          remaining -= 64;
+        let resultDivided = Math.floor(remaining / 64)
+        let resultModulo = remaining % 64
+        let returnString = ''
+
+        if (resultDivided > 0) {
+          returnString += resultDivided + ' * 64';
         }
-        if (packages.length > 0) {
-          returnString += packages.length + ' * 64';
-        }
-        if (remaining > 0) {
-          returnString += ' + ' + remaining ;
+        if (resultModulo > 0) {
+          returnString += ' + ' + resultModulo ;
 
         }
 
@@ -61,28 +59,26 @@
 <form action="">
     <table border="0" cellspacing="0" cellpadding="2">
         <tr>
-            <td>Power</td>
+            <td>Power:</td>
             <td><input type="text" name="zahl1" size="24" onkeyup="add()" /></td>
         </tr>
-
-
         <tr>
             <td colspan="2"></td>
         </tr>
         <tr>
-            <td>Shulkers:</td>
+            <td>Unstackables:</td>
             <td><input type="text"   readonly name="ergebnis" size="24"></input></td>
         </tr>
         <tr>
             <td colspan="2"></td>
         </tr>
         <tr>
-            <td>Snowballs:</td>
+            <td>Semi Stackables:</td>
             <td><input type="text"   readonly name="ergebnis2" size="24"></input></td>
         </tr>
     </table>
 </form>
-<p>Made by VFox32's dad</p>
+<p></p>
 </body>
 
 </html>
